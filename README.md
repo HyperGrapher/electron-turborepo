@@ -2,6 +2,9 @@
 
 A secure boilerplate for Electron applications using Turborepo, Next.js, and Vite.
 
+#### Turborepo deaomon issue:
+[Github Issue](https://github.com/vercel/turborepo/issues/3455)
+
 ## What's inside?
 
 This Turborepo uses [npm](https://www.npmjs.com/) as a packages manager. It includes the following packages/apps:
