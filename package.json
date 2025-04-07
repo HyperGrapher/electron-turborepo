@@ -1,5 +1,5 @@
 {
-  "name": "with-npm",
+  "name": "phantom-hud",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -12,11 +12,11 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "prettier": "^3.2.5",
+    "prettier": "^3.5.3",
     "turbo": "^2.5.0"
   },
-  "packageManager": "npm@10.5.0",
+  "packageManager": "npm@11.2.0",
   "engines": {
-    "node": ">=18"
+    "node": ">=23"
   }
 }
