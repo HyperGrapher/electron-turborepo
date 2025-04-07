@@ -1,19 +1,40 @@
 {
-  "name": "phantom-hud",
+  "name": "electron-boilerplate",
   "private": true,
+  "description": "Secure boilerplate for Electron app based on Vite",
+  "version": "1.0.0",
+  "author": {
+    "email": "example@gmail.com",
+    "name": "example",
+    "url": "https://example.com"
+  },
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
+  "main": "packages/entry-point.mjs",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "build:electron-pkgs": "turbo run build --filter=@app/main --filter=@app/preload",
+    "start:electron": "node packages/dev-mode.js",
+    "compile:electron": "npm run build:electron-pkgs && electron-builder build --config electron-builder.mjs"
+  },
+  "dependencies": {
+    "@app/main": "*"
   },
   "devDependencies": {
     "prettier": "^3.5.3",
-    "turbo": "^2.5.0"
+    "turbo": "^2.5.0",
+    "@npmcli/map-workspaces": "4.0.2",
+    "@playwright/test": "1.51.1",
+    "@types/node": "22.14.0",
+    "electron": "35.1.4",
+    "electron-builder": "26.0.12",
+    "glob": "11.0.1",
+    "playwright": "^1.51.1"
   },
   "packageManager": "npm@11.2.0",
   "engines": {
