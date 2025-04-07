@@ -1,5 +1,5 @@
 {
-  "extends": "../typescript-config/base.json",
+  "extends": "@repo/typescript-config/base.json",
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "module": "NodeNext",
@@ -12,8 +12,7 @@
     "types": ["node"],
     "baseUrl": ".",
     "paths": {
-      "@app/preload": ["../preload"],
-      "@app/renderer": ["../renderer"]
+      "@app/*": ["../*"]
     }
   },
   "include": ["src/**/*.ts", "../../types/**/*.d.ts"],

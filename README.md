@@ -1,14 +1,6 @@
-# Turborepo starter
+# Electron Turborepo Starter
 
-This is a community-maintained example. If you experience a problem, please submit a pull request with a fix. GitHub Issues will be closed.
-
-## Using this example
-
-Run the following command:
-
-```sh
-npx create-turbo@latest -e with-npm
-```
+A secure boilerplate for Electron applications using Turborepo, Next.js, and Vite.
 
 ## What's inside?
 
@@ -18,6 +10,10 @@ This Turborepo uses [npm](https://www.npmjs.com/) as a packages manager. It incl
 
 - `docs`: a [Next.js](https://nextjs.org/) app
 - `web`: another [Next.js](https://nextjs.org/) app
+- `electron/main`: The Electron main process
+- `electron/preload`: Electron preload scripts
+- `electron/renderer`: The Electron renderer process built with React + Vite
+- `electron/electron-versions`: Helper utilities for Electron versioning
 - `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
 - `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
@@ -31,14 +27,21 @@ This Turborepo has some additional tools already setup for you:
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
+- [Electron](https://www.electronjs.org/) for building cross-platform desktop applications
+- [Vite](https://vitejs.dev/) for fast development and building
 
 ### Build
 
 To build all apps and packages, run the following command:
 
 ```
-cd my-turborepo
 npm run build
+```
+
+To build only the Electron packages:
+
+```
+npm run build:electron-pkgs
 ```
 
 ### Develop
@@ -46,8 +49,13 @@ npm run build
 To develop all apps and packages, run the following command:
 
 ```
-cd my-turborepo
 npm run dev
+```
+
+To start the Electron application in development mode:
+
+```
+npm run start:electron
 ```
 
 ### Remote Caching

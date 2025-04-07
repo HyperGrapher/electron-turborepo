@@ -10,17 +10,21 @@
   },
   "workspaces": [
     "apps/*",
+    "electron/*",
     "packages/*"
   ],
-  "main": "packages/entry-point.mjs",
+  "main": "electron/entry-point.mjs",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "build:electron-pkgs": "turbo run build --filter=@app/main --filter=@app/preload",
-    "start:electron": "node packages/dev-mode.js",
-    "compile:electron": "npm run build:electron-pkgs && electron-builder build --config electron-builder.mjs"
+    "start:electron": "npm run deamon:clean && node electron/dev-mode.js",
+    "compile:electron": "npm run deamon:clean && npm run build:electron-pkgs && electron-builder build --config electron-builder.mjs",
+    "deamon:clean": "turbo daemon clean",
+    "daemon:stop": "turbo daemon stop",
+    "test": "turbo run test"
   },
   "dependencies": {
     "@app/main": "*"

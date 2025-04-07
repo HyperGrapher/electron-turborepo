@@ -24,7 +24,7 @@ process.env.MODE = mode;
  */
 const rendererWatchServer = await createServer({
   mode,
-  root: path.resolve('packages/renderer'),
+  root: path.resolve('electron/renderer'),
 });
 
 await rendererWatchServer.listen();
@@ -52,8 +52,8 @@ const rendererWatchServerProvider = {
 
 /** @type {string[]} */
 const packagesToStart = [
-  'packages/preload',
-  'packages/main',
+  'electron/preload',
+  'electron/main',
 ];
 
 for (const pkg of packagesToStart) {
